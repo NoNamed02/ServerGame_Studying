@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ClientManager : MonoBehaviour
 {
-    public static ClientManager instance;
+    public static ClientManager _instance;
     public int clientPlayerId;
 
     private TcpClient client;
@@ -19,7 +19,7 @@ public class ClientManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        _instance = this;
     }
     private void Update()
     {
@@ -77,12 +77,6 @@ public class ClientManager : MonoBehaviour
                         player.GetComponent<PlayerController>().Setup(i);
                     }
                 }
-                
-                if (message.StartsWith(clientPlayerId.ToString()))
-                {
-                    //플레이어 이동 구현
-                }
-                //ReceiveMessage();
             }
         }, null);
     }

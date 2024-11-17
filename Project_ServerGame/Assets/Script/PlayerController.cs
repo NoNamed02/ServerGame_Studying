@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     public void Setup(int id)
     {
         playerId = id;
-        hasControl = (id == ClientManager.instance.clientPlayerId);
     }
 
     private void Update()

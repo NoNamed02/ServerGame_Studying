@@ -72,19 +72,6 @@ public class ServerManager : MonoBehaviour
                 players[playerId].nickname = nickname;
 
                 Debug.Log($"Player {playerId} joined with nickname: {nickname}");
-
-                /*
-                if (_index < 4)
-                {
-                    GameObject player = Instantiate(Resources.Load("PlayerPrefab"), spwanPos[_index], Quaternion.identity);
-                    player.GetComponent<PlayerController>().Setup(_index);
-                    UsersName[_index].text = nickname;
-                    _index++;
-                }
-                */
-                
-                //CreatePlayerCharacter(playerId);
-                //SendStartSignal(client, playerId);
             }
         }, null);
     }
@@ -120,7 +107,6 @@ public class ServerManager : MonoBehaviour
         string message = "START:" + playerId;
         byte[] data = Encoding.UTF8.GetBytes(message);
         stream.Write(data, 0, data.Length);
-        Debug.Log($"Sent start signal to player {playerId}");
     }
 
     private void OnApplicationQuit()
